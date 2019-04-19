@@ -1,13 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = props => {
   return (
     <div className="nav-container">
       <nav className="navbar fixed-top navbar-expand-xl navbar-light bg-light">
         <a className="navbar-brand" href="##">
           <img src="" width="100" height="100" alt="" />
         </a>
-
         <button
           className="navbar-toggler"
           data-toggle="collapse"
@@ -18,24 +18,29 @@ const Navbar = () => {
         <div id="navbarNav" className="collapse navbar-collapse">
           <ul className="navbar-nav" id="navbarNav">
             <li className="nav-item">
-              <a id="home" className="nav-link" href="##">
+              <Link exact to="/" className="nav-link">
+                welcome
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/home" className="nav-link">
                 home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a id="findwork" className="nav-link" href="##">
+              <Link to="/work" className="nav-link">
                 find work
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a id="profile" className="nav-link" href="##">
+              <Link to="/profile" className="nav-link">
                 profile
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a id="login" className="nav-link" href="##">
+              <Link to="/login" className="nav-link">
                 login
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

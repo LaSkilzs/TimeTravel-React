@@ -1,21 +1,18 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import HomeState from "./containers/HomeState";
-import FactState from "./containers/FactState";
-import Form from "./containers/Form";
+import Container from "./containers/Container";
 
 class App extends Component {
   render() {
     return (
       <div className="app-container">
         <Navbar />
-        <Home />
-        <FactState />
-        <HomeState />
-        <Form />
+        <Route exact path="/" component={Home} />
+        <Container />
       </div>
     );
   }
