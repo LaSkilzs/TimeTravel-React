@@ -38,6 +38,9 @@
 
 #main {
   background-color: #316bb0;
+  background-repeat: repeat;
+  padding: 60px;
+  height: 100vh;
 }
 
 .form-control {

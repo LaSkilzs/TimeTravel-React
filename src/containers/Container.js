@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import Title from "../components/Title";
 import HomeState from "./HomeState";
 import WorkState from "./WorkState";
 import ProfileState from "./ProfileState";
+import JobState from "./JobState";
+import Form from "./Form";
 
 class Container extends Component {
   render() {
@@ -14,6 +15,8 @@ class Container extends Component {
             <Route exact path="/home" component={HomeState} />
             <Route path="/work" component={WorkState} />
             <Route path="/profile" component={ProfileState} />
+            <Route path="/jobs" component={JobState} />
+            <Route path="/login" component={Form} />
           </Switch>
         </div>
       </section>

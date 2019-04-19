@@ -29,6 +29,11 @@ const Navbar = props => {
             </li>
             <li className="nav-item">
               <Link to="/work" className="nav-link">
+                careers
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/jobs" className="nav-link">
                 find work
               </Link>
             </li>
