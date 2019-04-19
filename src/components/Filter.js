@@ -34,7 +34,7 @@ const Filter = () => {
           <option value="transportation">Transportation</option>
         </select>
         <div className="skillbtn">
-          <button className="btn btn-outline-primary">find by state</button>
+          <button className="btn btn-outline-primary">filter by ???</button>
         </div>
         <hr />
       </div>

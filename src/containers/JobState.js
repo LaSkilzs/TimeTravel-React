@@ -6,7 +6,8 @@ import Pagination from "../components/Pagination";
 
 const JobState = props => {
   return (
-    <React.Fragment>
+    <div id="job-container">
+      {/* <div className="row"> */}
       <Title title={"Find Work"} />
       <Utility />
       <Pagination />
@@ -21,7 +22,8 @@ const JobState = props => {
         </div>
         <Pagination />
       </section>
-    </React.Fragment>
+      {/* </div> */}
+    </div>
   );
 };
 

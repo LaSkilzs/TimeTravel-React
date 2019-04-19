@@ -3,6 +3,11 @@
   --input-padding-y: 0.75rem;
 }
 
+.app-container {
+  margin: 0;
+  padding: 0;
+}
+
 .navbar {
   border-bottom: #316bb0 3px solid;
 }
@@ -22,6 +27,7 @@
 #funfacts {
   display: flex;
   justify-content: center;
+  padding-top: 100px;
 }
 .allfacts {
   background: #f4f4f4;
@@ -36,8 +42,18 @@
   background-color: #f4f4f4;
 }
 
+#job-container {
+  min-height: 100vh;
+}
+
+#title {
+  padding-top: 5rem;
+}
+
 #main {
   background-color: #316bb0;
+  /* min-height: 100vh;
+  overflow: hidden; */
 }
 
 .form-control {
@@ -193,9 +209,20 @@
 }
 
 /* Login */
+
+.form-container {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh;
+  background-color: royalblue;
+}
 .login-form {
-  width: 340px;
-  margin: 50px auto;
+  width: 20rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 250px !important;
 }
 .login-form form {
   margin-bottom: 15px;
