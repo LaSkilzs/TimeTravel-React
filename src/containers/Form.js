@@ -15,10 +15,10 @@ class Form extends React.Component {
       <div className="form-container">
         <div className="row">
           <Switch>
-            <Route path="/login" component={LoginCard} />
-            <Route path="/form:type" component={RegistrationCard} />
-            <Route path="/form:type" component={ApplicationCard} />
-            <Route path="/form:type" component={ProfileCard} />
+            <Route path="/form:id" component={LoginCard} />
+            <Route path="/form:id" component={RegistrationCard} />
+            <Route path="/login" component={ApplicationCard} />
+            <Route path="/form:id" component={ProfileCard} />
           </Switch>
         </div>
       </div>
