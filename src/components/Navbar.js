@@ -32,6 +32,11 @@ const Navbar = () => {
                 profile
               </a>
             </li>
+            <li className="nav-item">
+              <a id="login" className="nav-link" href="##">
+                login
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
