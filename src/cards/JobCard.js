@@ -4,33 +4,31 @@ import PropTypes from "prop-types";
 import SeeMoreCard from "../cards/SeeMoreCard";
 
 const JobCard = props => {
-  if (!props.showDetailsCard) {
-    return (
-      <React.Fragment>
-        <div className="row card">
-          <div className="jobcard card-body">
-            <div className="">
-              <h2>{props.title}</h2>
-              <h4>{props.industry}</h4>
-              <p>{props.description}</p>
-            </div>
-            <div className="float-right">
-              <Link to="/form/application">
-                <button className="btn-success">apply</button>
-              </Link>
-              <button
-                className="btn-primary"
-                onClick={() => console.log("clicked")}
-              >
-                details
-              </button>
-              <button className="btn-danger">delete</button>
-            </div>
+  return (
+    <React.Fragment>
+      <div className="row card">
+        <div className="jobcard card-body">
+          <div className="">
+            <h2>{props.title}</h2>
+            <h4>{props.industry}</h4>
+            <p>{props.description}</p>
+          </div>
+          <div className="float-right">
+            <Link to="/form/application">
+              <button className="btn-success">apply</button>
+            </Link>
+            <button
+              className="btn-primary"
+              onClick={() => console.log("clicked")}
+            >
+              details
+            </button>
+            <button className="btn-danger">delete</button>
           </div>
         </div>
-      </React.Fragment>
-    );
-  }
+      </div>
+    </React.Fragment>
+  );
 };
 
 export default JobCard;
@@ -43,7 +41,6 @@ JobCard.propTypes = {
   location: PropTypes.string,
   wage: PropTypes.number
 };
-
 JobCard.defaultProps = {
   title: "Job Title",
   industry: "Industry",
