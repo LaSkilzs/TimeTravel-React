@@ -7,8 +7,8 @@ const Profile = props => {
       <div className="card">
         <div className="card-body">
           <div id="state-image" className="row">
-            <ImageCard />
-            <ContentCard />
+            <ImageCard card={props.card} />
+            <ContentCard card={props.card} />
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Title from "../components/Title";
 import Profile from "../components/Profile";
 import Pagination from "../components/Pagination";
 import FactState from "./FactState";
+import PropTypes from "prop-types";
 
 class WorkState extends React.Component {
   constructor() {
@@ -10,7 +11,8 @@ class WorkState extends React.Component {
     this.state = {
       helpwanteds: [],
       jobs: [],
-      title: "Helpwanted"
+      title: "Helpwanted",
+      card: "work"
     };
   }
   async componentDidMount() {
@@ -24,7 +26,7 @@ class WorkState extends React.Component {
       <React.Fragment>
         <FactState />
         <Title title={this.state.title} />
-        <Profile />
+        <Profile card={this.state.card} />
         <Pagination />
       </React.Fragment>
     );

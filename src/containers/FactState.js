@@ -15,12 +15,13 @@ class FactState extends React.Component {
     this.setState({ facts });
   }
   render() {
-    console.log(this.state.facts);
+    let fact = this.state.facts.map(fact => <FactCard fact={fact} />);
+    let rand = Math.floor(Math.random() * fact.length + 1);
     return (
       <section id="funfacts">
         <div className="main-allfacts container m-4">
           <div id="facts" className="allfacts card">
-            <FactCard />
+            {fact[rand]}
           </div>
         </div>
       </section>

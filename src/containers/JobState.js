@@ -10,9 +10,14 @@ class JobState extends React.Component {
     this.state = {
       jobs: [],
       applications: [],
-      title: "Find Work"
+      title: "Find Work",
+      card: "job",
+      showDetails: false
     };
   }
+  handleDetails = () => {
+    this.setState({ showDetails: !this.state.showDetails });
+  };
 
   async componentDidMount() {
     const responseJ = await fetch("http://localhost:3000/api/v1/jobs");
@@ -34,7 +39,26 @@ class JobState extends React.Component {
           <div className="m-3 employmentsection">
             <div className="job-container">
               <div id="jobs-section" className="row card">
-                <JobCard />
+                <JobCard
+                  showDetailsCard={this.state.showDetails}
+                  handleDetails={this.handleDetails}
+                />
+                <JobCard
+                  showDetailsCard={this.state.showDetails}
+                  handleDetails={this.handleDetails}
+                />
+                <JobCard
+                  showDetailsCard={this.state.showDetails}
+                  handleDetails={this.handleDetails}
+                />
+                <JobCard
+                  showDetailsCard={this.state.showDetails}
+                  handleDetails={this.handleDetails}
+                />
+                <JobCard
+                  showDetailsCard={this.state.showDetails}
+                  handleDetails={this.handleDetails}
+                />
               </div>
             </div>
           </div>

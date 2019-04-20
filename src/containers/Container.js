@@ -5,6 +5,7 @@ import WorkState from "./WorkState";
 import ProfileState from "./ProfileState";
 import JobState from "./JobState";
 import Form from "./Form";
+import SeeMoreCard from "../cards/SeeMoreCard";
 
 class Container extends Component {
   render() {
@@ -22,6 +23,7 @@ class Container extends Component {
               component={routerProps => <Form {...routerProps} />}
             />
           </Switch>
+          <SeeMoreCard />
         </div>
       </section>
     );
