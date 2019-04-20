@@ -203,7 +203,7 @@
   text-decoration: none;
 }
 .signup-form form a {
-  color: royalblue;
+  color: #316bb0;
   text-decoration: none;
 }
 .signup-form form a:hover {
@@ -216,7 +216,7 @@
   margin: 0 !important;
   padding: 0 !important;
   height: 100vh;
-  background-color: royalblue;
+  background-color: #316bb0;
 }
 .login-form {
   width: 20rem;
@@ -279,4 +279,8 @@
 .profile-container {
   padding-bottom: 100px;
   margin-top: 50px;
+}
+
+.play {
+  margin-top: 100px;
 }

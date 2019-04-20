@@ -18,7 +18,6 @@ class HomeState extends React.Component {
     const industries = await response.json();
     this.setState({ industries });
   }
-
   render() {
     console.log(this.state.industries);
     return (

@@ -3,12 +3,12 @@ import Title from "../components/Title";
 
 const ProfileCard = props => {
   return (
-    <div class="container pt-2">
-      <div class="row card profile-container">
-        <div class="col-md-8 col-md-offset-2 container">
+    <div className="container pt-2">
+      <div className="row card profile-container">
+        <div className="col-md-8 col-md-offset-2 container">
           <Title title={"New Profile"} />
-          <div class="form-row">
-            <div class="form-group col-md-6">
+          <div className="form-row">
+            <div className="form-group col-md-6">
               <label htmlFor="fname">First Name</label>
               <input
                 type="text"
@@ -18,7 +18,7 @@ const ProfileCard = props => {
                 placeholder="first_name"
               />
             </div>
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label htmlFor="lname">Last Name</label>
               <input
                 type="text"
@@ -28,9 +28,9 @@ const ProfileCard = props => {
                 placeholder="last_name"
               />
             </div>
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label htmlFor="ageGroup">What is your Age Group?</label>
-              <select id="ageGroup" class="form-control">
+              <select id="ageGroup" className="form-control">
                 <option value="">ageGroup</option>
                 <option value="family">family</option>
                 <option value="adult">adult</option>
@@ -38,18 +38,18 @@ const ProfileCard = props => {
               </select>
             </div>
 
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label htmlFor="gender">What is your Gender?</label>
-              <select id="gender" class="form-control">
+              <select id="gender" className="form-control">
                 <option value="">gender</option>
                 <option value="female">female</option>
                 <option value="male">male</option>
               </select>
             </div>
 
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label htmlFor="marital_status">Are you married?</label>
-              <select id="marital_status" class="form-control">
+              <select id="marital_status" className="form-control">
                 <option value="">marital_status</option>
                 <option value="single">single</option>
                 <option value="married">married</option>
@@ -57,11 +57,11 @@ const ProfileCard = props => {
                 <option value="divorced">divorced</option>
               </select>
             </div>
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label htmlFor="education">
                 Highest level of education completed?
               </label>
-              <select id="education" class="form-control">
+              <select id="education" className="form-control">
                 <option value="">education</option>
                 <option value="highschool">highschool</option>
                 <option value="college">college</option>
@@ -69,7 +69,7 @@ const ProfileCard = props => {
                 <option value="uneducated">uneducated</option>
               </select>
             </div>
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label htmlFor="available_for_work">When can you start?</label>
               <input
                 type="date"
@@ -80,17 +80,17 @@ const ProfileCard = props => {
               />
             </div>
 
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label htmlFor="trade">Have you learned a trade?</label>
-              <select class="form-control">
+              <select className="form-control">
                 <option value="">trade</option>
                 <option value="true">true</option>
                 <option value="false">false</option>
               </select>
             </div>
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label htmlFor="experience">What is your experience level?</label>
-              <select id="experience" class="form-control">
+              <select id="experience" className="form-control">
                 <option value="">experience</option>
                 <option value="skilled">skilled</option>
                 <option value="semiskilled">semiskilled</option>
@@ -99,7 +99,7 @@ const ProfileCard = props => {
                 <option value="laborer">laborer</option>
               </select>
             </div>
-            <div class="form-group col-md-6">
+            <div className="form-group col-md-6">
               <label htmlFor="image">Profile picture?</label>
               <input
                 type="text"

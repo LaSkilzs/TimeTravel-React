@@ -32,8 +32,8 @@ const ContentCard = () => {
           </li>
         </ul>
         <div className="float-right">
-          <button className="btn-success">show</button>
-          <button className="btn-primary">save</button>
+          <button className="btn-success">apply</button>
+          <button className="btn-primary">details</button>
         </div>
       </div>
     </div>

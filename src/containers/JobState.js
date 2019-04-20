@@ -21,7 +21,6 @@ class JobState extends React.Component {
     const applications = await responseA.json();
     this.setState({ jobs, applications });
   }
-
   render() {
     console.log(this.state.jobs);
     console.log(this.state.applications);

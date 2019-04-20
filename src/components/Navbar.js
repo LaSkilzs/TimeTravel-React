@@ -18,32 +18,56 @@ const Navbar = props => {
         <div id="navbarNav" className="collapse navbar-collapse">
           <ul className="navbar-nav" id="navbarNav">
             <li className="nav-item">
-              <Link to="/" className="nav-link">
-                welcome
+              <Link
+                to="/"
+                className="nav-link"
+                activestyle={{ color: "#316bb0" }}
+              >
+                TimeTravel
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/home" className="nav-link">
+              <Link
+                to="/home"
+                className="nav-link"
+                activestyle={{ color: "#316bb0" }}
+              >
                 home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/work" className="nav-link">
+              <Link
+                to="/work"
+                className="nav-link"
+                activestyle={{ color: "#316bb0" }}
+              >
                 careers
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/jobs" className="nav-link">
+              <Link
+                to="/jobs"
+                className="nav-link"
+                activestyle={{ color: "#316bb0" }}
+              >
                 find work
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/profile" className="nav-link">
+              <Link
+                to="/profile"
+                className="nav-link"
+                activestyle={{ color: "#316bb0" }}
+              >
                 profile
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/login" className="nav-link">
+              <Link
+                to="/form/login"
+                className="nav-link"
+                activestyle={{ color: "#316bb0" }}
+              >
                 login
               </Link>
             </li>

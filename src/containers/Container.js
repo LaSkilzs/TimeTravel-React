@@ -8,6 +8,7 @@ import Form from "./Form";
 
 class Container extends Component {
   render() {
+    console.log(this.props);
     return (
       <section id="main">
         <div className="main container">
@@ -16,7 +17,10 @@ class Container extends Component {
             <Route path="/work" component={WorkState} />
             <Route path="/profile" component={ProfileState} />
             <Route path="/jobs" component={JobState} />
-            <Route path="/login" component={Form} />
+            <Route
+              path="/form/:name"
+              component={routerProps => <Form {...routerProps} />}
+            />
           </Switch>
         </div>
       </section>
