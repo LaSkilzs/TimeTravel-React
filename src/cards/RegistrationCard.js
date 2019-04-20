@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const RegistrationCard = props => {
   return (
     <div className="signup-form">
@@ -67,7 +67,7 @@ const RegistrationCard = props => {
           </button>
         </div>
         <div className="text-center">
-          Already have an account? <a href="##">Sign in</a>
+          Already have an account? <Link to="/form/login">Sign in</Link>
         </div>
       </form>
     </div>

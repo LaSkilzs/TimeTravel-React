@@ -3,6 +3,7 @@ import Title from "../components/Title";
 import Profile from "../components/Profile";
 import Pagination from "../components/Pagination";
 import FactState from "./FactState";
+import PropTypes from "prop-types";
 
 class ProfileState extends React.Component {
   constructor() {

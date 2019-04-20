@@ -284,3 +284,9 @@
 .play {
   margin-top: 100px;
 }
+
+/*  */
+
+.seemore ul {
+  list-style-type: none;
+}
