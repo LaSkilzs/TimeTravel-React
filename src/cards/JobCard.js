@@ -19,8 +19,10 @@ const JobCard = props => {
                 <button className="btn-success">apply</button>
               </Link>
               <button
-                className="btn-primary"
-                onClick={() => console.log("clicked")}
+                type="button"
+                class=" btn-primary"
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
               >
                 details
               </button>

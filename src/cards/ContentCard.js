@@ -50,10 +50,17 @@ const ContentCard = props => {
             </li>
           </ul>
           <div class="float-right">
-            <button class="btn-success">show</button>
             <Link to="/form/application">
-              <button class="btn-primary">apply</button>
+              <button class="btn-success">apply</button>
             </Link>
+            <button
+              type="button"
+              class=" btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModalCenter"
+            >
+              details
+            </button>
             <button class="btn-danger">delete</button>
           </div>
         </div>
