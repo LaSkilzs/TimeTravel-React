@@ -1,213 +1,160 @@
 import React from "react";
+import Title from "../components/Title";
 
 const ApplicationCard = props => {
   return (
-    <form>
-      <div className="form-group row">
-        <label
-          htmlFor="job-title"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Job Title
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="job-title"
-            className="form-control"
-            name="job-title"
-          />
+    <div class="container pt-4">
+      <div class="row card">
+        <div class="col-md-8 col-md-offset-2 container">
+          <Title title={"New Application"} />
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label htmlFor="jobtitle">Job Title</label>
+              <input
+                type="text"
+                id="job-title"
+                className="form-control"
+                name="job-title"
+                placeholder="job_title"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="citizenship">Are you a US Citizen?</label>
+              <select class="form-control">
+                <option value="">citizenship</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label htmlFor="inputEmail4">Are your parents married?</label>
+              <select class="form-control">
+                <option value="">parent_union</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="inputPassword4">
+                Do your parents know a trade?
+              </label>
+              <select class="form-control">
+                <option value="">parent_trade</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label htmlFor="inputEmail4">
+                Do your parents own their business?
+              </label>
+              <select class="form-control">
+                <option value="">entreprenuership</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="inputPassword4">
+                Do you work well with others
+              </label>
+              <select class="form-control">
+                <option value="">work_with_others</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label htmlFor="inputEmail4">
+                Are you able do repetitive tasks?
+              </label>
+              <select class="form-control">
+                <option value="">montonous_task</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="inputPassword4">Can you work 40hrs weekly?</label>
+              <select class="form-control">
+                <option value="">work_life_balance</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label htmlFor="inputEmail4">Can you work 60hrs+ weekly?</label>
+              <select class="form-control">
+                <option value="">overtime?</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="inputPassword4">
+                Where are you able to work?
+              </label>
+              <select
+                id="work_location"
+                class="form-control"
+                name="work_location"
+              >
+                <option value="">work_location</option>
+                <option value="central">central</option>
+                <option value="northern">northern</option>
+                <option value="southern">southern</option>
+                <option value="western">western</option>
+                <option value="new_england">new_england</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label htmlFor="status">Application Status</label>
+              <select id="status" class="form-control" name="status">
+                <option value="">status</option>
+                <option value="applied">applied</option>
+                <option value="interview">interview</option>
+                <option value="denied">denied</option>
+                <option value="hired">hired</option>
+                <option value="unqualified">unqualified</option>
+              </select>
+            </div>
+            {/* <div class="form-group col-md-6">
+              <label htmlFor="application_score">Application Score</label>
+              <input
+                type="number"
+                class="form-control"
+                id="app_score"
+                placeholder="0"
+              />
+            </div> */}
+            <div class="form-group col-md-6">
+              <label htmlFor="helpwanted_id">Helpwanted Application Id</label>
+              <input
+                type="number"
+                class="form-control"
+                id="helpwanted_id"
+                placeholder="helpwanted_id"
+              />
+            </div>
+            <div className="form-group col-md-6 offset-md-5 py-5">
+              <button type="submit" className="btn btn-primary">
+                Register
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="form-group row">
-        <label
-          htmlFor="citizenship"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Citizenship
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="citizenship"
-            className="form-control"
-            name="citizenship"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="parent-union"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Parent-Union
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="parent-union"
-            className="form-control"
-            name="parent-union"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="parent_trade"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Parent Trade
-        </label>
-        <div className="col-md-6">
-          <input type="text" id="parent_trade" className="form-control" />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="entreprenuership"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Entreprenuership
-        </label>
-        <div className="col-md-6">
-          <input type="text" id="entreprenuership" className="form-control" />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="work_with_others"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Work with Others
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="work_with_others"
-            className="form-control"
-            name="work_with_others"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="monotous_task"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Monotous Task
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="monotous_task"
-            className="form-control"
-            name="monotous_task"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="work_life_balance"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Under 40 hours?
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="work_life_balance"
-            className="form-control"
-            name="experience"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="too_many_hours"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Overtime?
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="too_many_hours"
-            className="form-control"
-            name="too_many_hours"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="work_location"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Location
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="work_location"
-            className="form-control"
-            name="work_location"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="App Score"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          app score
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="App Score"
-            className="form-control"
-            name="App Score"
-            value="0"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="helpwanted_id"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Helpwanted Id
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="helpwanted_id"
-            className="form-control"
-            name="helpwanted_id"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="status"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Application Status
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="status"
-            className="form-control"
-            name="status"
-          />
-        </div>
-      </div>
-      <div className="col-md-6 offset-md-4">
-        <button type="submit" className="btn btn-primary">
-          Register
-        </button>
-      </div>
-    </form>
+    </div>
   );
 };
 

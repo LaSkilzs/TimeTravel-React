@@ -3,6 +3,11 @@
   --input-padding-y: 0.75rem;
 }
 
+.app-container {
+  margin: 0;
+  padding: 0;
+}
+
 .navbar {
   border-bottom: #316bb0 3px solid;
 }
@@ -22,6 +27,7 @@
 #funfacts {
   display: flex;
   justify-content: center;
+  padding-top: 100px;
 }
 .allfacts {
   background: #f4f4f4;
@@ -36,8 +42,20 @@
   background-color: #f4f4f4;
 }
 
+#job-container {
+  min-height: 100vh;
+}
+
+#title {
+  padding-top: 5rem;
+}
+
 #main {
-  background-color: #316bb0;
+  background: url("./images/look4work.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .form-control {
@@ -74,7 +92,7 @@
 
 .form-control {
   display: inline-flex;
-  width: 25vw;
+  /* width: 25vw; */
 }
 
 .featured {
@@ -122,7 +140,7 @@
 .signup-form {
   width: 400px;
   margin: 0 auto;
-  padding: 30px 0;
+  padding-top: 130px;
 }
 .signup-form h2 {
   color: #636363;
@@ -193,9 +211,20 @@
 }
 
 /* Login */
+
+.form-container {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh;
+  background-color: royalblue;
+}
 .login-form {
-  width: 340px;
-  margin: 50px auto;
+  width: 20rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 250px !important;
 }
 .login-form form {
   margin-bottom: 15px;
@@ -237,12 +266,17 @@
   margin-right: 0;
 }
 
-.login-form {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+.form-control,
+.btn {
+  min-height: 38px;
+  border-radius: 2px;
+}
+.btn {
+  font-size: 15px;
+  font-weight: bold;
 }
 
-.login-form .row {
-  margin-left: 0;
-  margin-right: 0;
+.profile-container {
+  padding-bottom: 100px;
+  margin-top: 50px;
 }

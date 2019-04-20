@@ -1,139 +1,124 @@
 import React from "react";
+import Title from "../components/Title";
 
 const ProfileCard = props => {
   return (
-    <form>
-      <div className="form-group row">
-        <label
-          htmlFor="full_name"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Full Name
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="full_name"
-            className="form-control"
-            name="full-name"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label htmlFor="age" className="col-md-4 col-form-label text-md-right">
-          AgeGroup
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="ageGroup"
-            className="form-control"
-            name="ageGroup"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="gender"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Gender
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="gender"
-            className="form-control"
-            name="gender"
-          />
-        </div>
-      </div>
+    <div class="container pt-2">
+      <div class="row card profile-container">
+        <div class="col-md-8 col-md-offset-2 container">
+          <Title title={"New Profile"} />
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label htmlFor="fname">First Name</label>
+              <input
+                type="text"
+                id="fname"
+                className="form-control"
+                name="fname"
+                placeholder="first_name"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="lname">Last Name</label>
+              <input
+                type="text"
+                id="lname"
+                className="form-control"
+                name="lname"
+                placeholder="last_name"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="ageGroup">What is your Age Group?</label>
+              <select id="ageGroup" class="form-control">
+                <option value="">ageGroup</option>
+                <option value="family">family</option>
+                <option value="adult">adult</option>
+                <option value="youth">youth</option>
+              </select>
+            </div>
 
-      <div className="form-group row">
-        <label
-          htmlFor="marital_status"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Marital Status
-        </label>
-        <div className="col-md-6">
-          <input type="text" id="marital_status" className="form-control" />
-        </div>
-      </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="gender">What is your Gender?</label>
+              <select id="gender" class="form-control">
+                <option value="">gender</option>
+                <option value="female">female</option>
+                <option value="male">male</option>
+              </select>
+            </div>
 
-      <div className="form-group row">
-        <label
-          htmlFor="education"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Education
-        </label>
-        <div className="col-md-6">
-          <input type="text" id="education" className="form-control" />
-        </div>
-      </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="marital_status">Are you married?</label>
+              <select id="marital_status" class="form-control">
+                <option value="">marital_status</option>
+                <option value="single">single</option>
+                <option value="married">married</option>
+                <option value="widowed">widowed</option>
+                <option value="divorced">divorced</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="education">
+                Highest level of education completed?
+              </label>
+              <select id="education" class="form-control">
+                <option value="">education</option>
+                <option value="highschool">highschool</option>
+                <option value="college">college</option>
+                <option value="some_education">some_education</option>
+                <option value="uneducated">uneducated</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="available_for_work">When can you start?</label>
+              <input
+                type="date"
+                id="avaiable_for_work"
+                className="form-control"
+                name="avaiable_for_work"
+                placeholder="avaiable_for_work"
+              />
+            </div>
 
-      <div className="form-group row">
-        <label
-          htmlFor="available_for_work"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Available for Work
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="available_for_work"
-            className="form-control"
-            name="available_for_work"
-          />
-        </div>
-      </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="trade">Have you learned a trade?</label>
+              <select class="form-control">
+                <option value="">trade</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="experience">What is your experience level?</label>
+              <select id="experience" class="form-control">
+                <option value="">experience</option>
+                <option value="skilled">skilled</option>
+                <option value="semiskilled">semiskilled</option>
+                <option value="kindred">kindred</option>
+                <option value="professional">professional</option>
+                <option value="laborer">laborer</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label htmlFor="image">Profile picture?</label>
+              <input
+                type="text"
+                id="image"
+                className="form-control"
+                name="image"
+                placeholder="selfie"
+              />
+            </div>
 
-      <div className="form-group row">
-        <label
-          htmlFor="trade"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          Trade
-        </label>
-        <div className="col-md-6">
-          <input type="text" id="trade" className="form-control" name="trade" />
+            <div className="form-group col-md-6 offset-md-5">
+              <button type="submit" className="btn btn-primary">
+                Register
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="form-group row">
-        <label
-          htmlFor="experience"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          experience
-        </label>
-        <div className="col-md-6">
-          <input
-            type="text"
-            id="experience"
-            className="form-control"
-            name="experience"
-          />
-        </div>
-      </div>
-      <div className="form-group row">
-        <label
-          htmlFor="image"
-          className="col-md-4 col-form-label text-md-right"
-        >
-          image
-        </label>
-        <div className="col-md-6">
-          <input type="text" id="image" className="form-control" name="image" />
-        </div>
-      </div>
-      <div className="col-md-6 offset-md-4">
-        <button type="submit" className="btn btn-primary">
-          Register
-        </button>
-      </div>
-    </form>
+    </div>
   );
 };
 

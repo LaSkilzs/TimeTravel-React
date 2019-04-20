@@ -1,28 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = props => {
   return (
-    <main id="mainimage">
-      <div id="changeStateBtns">
-        <section id="header">
-          <div className="container">
+    <section id="header">
+      <div className="container">
+        <div className="ml-3">
+          <Link to="/form/:id">
             <button
               id="homebtnprimary"
               className="homesection btn btn-outline-primary"
             >
               Create Profile
             </button>
+          </Link>
+          <Link to="/jobs">
             <button
               id="findwork"
               type="button"
-              className="homesection btn btn-outline-success"
+              className="homesection btn btn-outline-success ml-2"
             >
               Find Work
             </button>
-          </div>
-        </section>
+          </Link>
+        </div>
       </div>
-    </main>
+    </section>
   );
 };
 
