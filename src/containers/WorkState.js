@@ -18,7 +18,6 @@ class WorkState extends React.Component {
     const helpwanteds = await response.json();
     this.setState({ helpwanteds });
   }
-
   render() {
     console.log(this.state.helpwanteds);
     return (

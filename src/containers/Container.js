@@ -16,7 +16,7 @@ class Container extends Component {
             <Route path="/work" component={WorkState} />
             <Route path="/profile" component={ProfileState} />
             <Route path="/jobs" component={JobState} />
-            <Route path="/login" component={Form} />
+            <Route path="/form:form" component={Form} />
           </Switch>
         </div>
       </section>

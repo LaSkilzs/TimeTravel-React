@@ -43,7 +43,7 @@ const Navbar = props => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/login" className="nav-link">
+              <Link to="/form:login" className="nav-link">
                 login
               </Link>
             </li>

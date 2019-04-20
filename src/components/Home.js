@@ -6,7 +6,7 @@ const Home = props => {
     <section id="header">
       <div className="container">
         <div className="ml-3">
-          <Link to="/form/:id">
+          <Link to="/form:profile">
             <button
               id="homebtnprimary"
               className="homesection btn btn-outline-primary"

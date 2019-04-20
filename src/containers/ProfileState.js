@@ -18,7 +18,6 @@ class ProfileState extends React.Component {
     const profiles = await response.json();
     this.setState({ profiles });
   }
-
   render() {
     console.log(this.state.profiles);
     return (

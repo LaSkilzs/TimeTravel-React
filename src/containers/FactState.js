@@ -14,7 +14,6 @@ class FactState extends React.Component {
     const facts = await response.json();
     this.setState({ facts });
   }
-
   render() {
     console.log(this.state.facts);
     return (
