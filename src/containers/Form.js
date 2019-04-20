@@ -10,10 +10,10 @@ const Form = ({ match }) => {
     <div className="form-container">
       <div className="row">
         <Switch>
-          <Route path="/form:login" component={LoginCard} />
-          <Route path="/form:register" component={RegistrationCard} />
-          <Route path="/form:application" component={ApplicationCard} />
-          <Route path="/form:profile" component={ProfileCard} />
+          <Route path="/form/login" component={LoginCard} />
+          <Route path="/form/register" component={RegistrationCard} />
+          <Route path="/form/application" component={ApplicationCard} />
+          <Route path="/form/profile" component={ProfileCard} />
         </Switch>
       </div>
     </div>

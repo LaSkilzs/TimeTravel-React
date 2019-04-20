@@ -12,7 +12,10 @@ class App extends Component {
       <div className="app-container">
         <Navbar />
         <Route exact path="/" component={Home} />
-        <Container />
+        <Route
+          path="/:id"
+          render={routerProps => <Container {...routerProps} />}
+        />
       </div>
     );
   }

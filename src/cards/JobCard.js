@@ -11,10 +11,10 @@ const JobCard = props => {
           <p>Description</p>
         </div>
         <div className="float-right">
-          <button className="btn-success">view</button>
-          <Link to="/form:application">
-            <button className="btn-primary">apply</button>
+          <Link to="/form/application">
+            <button className="btn-success">apply</button>
           </Link>
+          <button className="btn-primary">details</button>
           <button className="btn-danger">delete</button>
         </div>
       </div>
