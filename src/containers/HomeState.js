@@ -3,7 +3,6 @@ import Title from "../components/Title";
 import Profile from "../components/Profile";
 import Pagination from "../components/Pagination";
 import FactState from "./FactState";
-import PropTypes from "prop-types";
 
 class HomeState extends React.Component {
   constructor() {
@@ -22,11 +21,16 @@ class HomeState extends React.Component {
   }
   render() {
     console.log(this.state.industries);
+    let industry = this.state.industries.map(industry => {
+      return (
+        <Profile card={this.state.card} industry={industry} key={industry.id} />
+      );
+    });
     return (
       <React.Fragment>
         <FactState />
         <Title title={this.state.title} />
-        <Profile card={this.state.card} />
+        {industry[0]}
         <Pagination />
       </React.Fragment>
     );

@@ -2,17 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    };
+  }
+
+  onSubmit = e => {
+    e.preventDefault();
+    console.log(this.state);
+    this.setState({ email: "", password: "" });
+  };
+
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
   render() {
     return (
       <div className="login-form">
-        <form>
+        <form onSubmit={e => this.onSubmit(e)}>
           <h2 className="text-center">Log in</h2>
           <div className="form-group">
             <input
               type="text"
               className="form-control"
-              placeholder="Username"
+              placeholder="email"
               required="required"
+              value={this.state.email}
+              name="email"
+              onChange={e => this.handleChange(e)}
             />
           </div>
           <div className="form-group">
@@ -21,6 +39,9 @@ class Login extends React.Component {
               className="form-control"
               placeholder="Password"
               required="required"
+              value={this.state.password}
+              name="password"
+              onChange={e => this.handleChange(e)}
             />
           </div>
           <div className="form-group">

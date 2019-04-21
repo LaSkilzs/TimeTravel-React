@@ -1,49 +1,88 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 const SeeMoreCard = props => {
   return (
-    <div className="card">
-      <div className="card-body seemore">
-        <div className="container see-content">
-          <h4>Avg Statistics of {props.name}</h4>
-          <ul id="state-content">
-            <li>
-              <span>Gender:</span> {props.gender}
-            </li>
-            <li>
-              <span>Age:</span> {props.age}
-            </li>
-            <li>
-              <span>Hours:</span> {props.hours}
-            </li>
-            <li>
-              <span>Wage per Week:</span> {props.wage}
-            </li>
-            <li>
-              <span>Work Environment:</span> {props.environment}
-            </li>
-            <li>
-              <span>Skill Level:</span> {props.skill}
-            </li>
-            <li>
-              <span>HS Diploma:</span> {props.education}
-            </li>
-            <li>
-              <span>Housing:</span> {props.housing.toString()}
-            </li>
-          </ul>
-          <div className="float-right">
-            <Link to="/form/application">
-              <button className="btn-success">apply</button>
-            </Link>
-            <button className="btn-primary">wantad</button>
-            <button className="btn-warning">hide</button>
+    // <div className="card">
+    //   <div className="card-body seemore">
+    //     <div className="container see-content">
+    <React.Fragment>
+      {/* <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+      >
+        details
+      </button> */}
+
+      <div
+        className="modal fade"
+        id="exampleModalCenter"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLongTitle">
+                Avg Statistics of {props.name}
+              </h5>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <ul id="state-content">
+                <li>
+                  <span>Gender:</span> {props.gender}
+                </li>
+                <li>
+                  <span>Age:</span> {props.age}
+                </li>
+                <li>
+                  <span>Hours:</span> {props.hours}
+                </li>
+                <li>
+                  <span>Wage per Week:</span> {props.wage}
+                </li>
+                <li>
+                  <span>Work Environment:</span> {props.environment}
+                </li>
+                <li>
+                  <span>Skill Level:</span> {props.skill}
+                </li>
+                <li>
+                  <span>HS Diploma:</span> {props.education}
+                </li>
+                <li>
+                  <span>Housing:</span> {props.housing.toString()}
+                </li>
+              </ul>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-warning"
+                data-dismiss="modal"
+              >
+                hide
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 
