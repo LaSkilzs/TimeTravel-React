@@ -28,7 +28,6 @@ class JobState extends React.Component {
   }
   render() {
     console.log(this.state.jobs);
-    console.log(this.state.applications);
     return (
       <div id="job-container">
         <Title title={this.state.title} />
@@ -39,26 +38,16 @@ class JobState extends React.Component {
           <div className="m-3 employmentsection">
             <div className="job-container">
               <div id="jobs-section" className="row card">
-                <JobCard
-                  showDetailsCard={this.state.showDetails}
-                  handleDetails={this.handleDetails}
-                />
-                <JobCard
-                  showDetailsCard={this.state.showDetails}
-                  handleDetails={this.handleDetails}
-                />
-                <JobCard
-                  showDetailsCard={this.state.showDetails}
-                  handleDetails={this.handleDetails}
-                />
-                <JobCard
-                  showDetailsCard={this.state.showDetails}
-                  handleDetails={this.handleDetails}
-                />
-                <JobCard
-                  showDetailsCard={this.state.showDetails}
-                  handleDetails={this.handleDetails}
-                />
+                {this.state.jobs.map(job => {
+                  return (
+                    <JobCard
+                      showDetailsCard={this.state.showDetails}
+                      handleDetails={this.handleDetails}
+                      key={job.id}
+                      job={job}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>

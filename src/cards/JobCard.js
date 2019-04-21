@@ -1,18 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import SeeMoreCard from "../cards/SeeMoreCard";
 
-const JobCard = props => {
-  if (!props.showDetailsCard) {
+const JobCard = ({ showDetailsCard, job }) => {
+  if (!showDetailsCard) {
     return (
       <React.Fragment>
         <div className="row card">
           <div className="jobcard card-body">
             <div className="">
-              <h2>{props.title}</h2>
-              <h4>{props.industry}</h4>
-              <p>{props.description}</p>
+              <h2>{job.name}</h2>
+              <h4>{job.industry}</h4>
+              <p>{job.job_description}</p>
             </div>
             <div className="float-right">
               <Link to="/form/application">
@@ -20,7 +19,7 @@ const JobCard = props => {
               </Link>
               <button
                 type="button"
-                class=" btn-primary"
+                className=" btn-primary"
                 data-toggle="modal"
                 data-target="#exampleModalCenter"
               >

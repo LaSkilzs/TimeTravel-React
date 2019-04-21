@@ -3,7 +3,6 @@ import Title from "../components/Title";
 import Profile from "../components/Profile";
 import Pagination from "../components/Pagination";
 import FactState from "./FactState";
-import PropTypes from "prop-types";
 
 class WorkState extends React.Component {
   constructor() {
@@ -22,11 +21,20 @@ class WorkState extends React.Component {
   }
   render() {
     console.log(this.state.helpwanteds);
+    const helpwanted = this.state.helpwanteds.map(helpwanted => {
+      return (
+        <Profile
+          card={this.state.card}
+          helpwanted={helpwanted}
+          key={helpwanted.id}
+        />
+      );
+    });
     return (
       <React.Fragment>
         <FactState />
         <Title title={this.state.title} />
-        <Profile card={this.state.card} />
+        {helpwanted[0]}
         <Pagination />
       </React.Fragment>
     );
