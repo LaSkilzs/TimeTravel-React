@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../components/Title";
+import API from "../API";
 
 class ProfileCard extends React.Component {
   constructor(props) {
@@ -15,14 +16,39 @@ class ProfileCard extends React.Component {
       marital_status: "",
       name: "",
       religion: "",
-      trade: false
+      trade: false,
+      fname: "",
+      lname: ""
     };
   }
 
-  createProfile = e => {
+  onSubmit = e => {
     e.preventDefault();
-    console.log(e);
+    this.handleName();
+    console.log(this.state);
+    // const profile = this.state;
+    // API.createProfile(profile)
+    this.setState({
+      age: "",
+      available_for_work: "",
+      avatar: "",
+      education: "",
+      ethnicity: "",
+      experience: "",
+      gender: "",
+      marital_status: "",
+      name: "",
+      religion: "",
+      trade: false,
+      fname: "",
+      lname: ""
+    });
   };
+
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  handleName = () =>
+    this.setState({ name: this.state.fname + " " + this.state.lname });
 
   render() {
     return (
@@ -30,7 +56,7 @@ class ProfileCard extends React.Component {
         <div className="row card profile-container">
           <div className="col-md-8 col-md-offset-2 container">
             <Title title={"New Profile"} />
-            <form className="form-row" onSubmit={this.createProfile}>
+            <form className="form-row" onSubmit={e => this.onSubmit(e)}>
               <div className="form-group col-md-6">
                 <label htmlFor="fname">First Name</label>
                 <input
@@ -39,6 +65,7 @@ class ProfileCard extends React.Component {
                   className="form-control"
                   name="fname"
                   placeholder="first_name"
+                  onChange={e => this.handleChange(e)}
                 />
               </div>
               <div className="form-group col-md-6">
@@ -49,11 +76,17 @@ class ProfileCard extends React.Component {
                   className="form-control"
                   name="lname"
                   placeholder="last_name"
+                  onChange={e => this.handleChange(e)}
                 />
               </div>
               <div className="form-group col-md-6">
                 <label htmlFor="ageGroup">What is your Age Group?</label>
-                <select id="ageGroup" className="form-control" name="ageGroup">
+                <select
+                  id="ageGroup"
+                  className="form-control"
+                  name="age"
+                  onChange={e => this.handleChange(e)}
+                >
                   <option value="">ageGroup</option>
                   <option value="family">family</option>
                   <option value="adult">adult</option>
@@ -63,7 +96,12 @@ class ProfileCard extends React.Component {
 
               <div className="form-group col-md-6">
                 <label htmlFor="gender">What is your Gender?</label>
-                <select id="gender" className="form-control" name="gender">
+                <select
+                  id="gender"
+                  className="form-control"
+                  name="gender"
+                  onChange={e => this.handleChange(e)}
+                >
                   <option value="">gender</option>
                   <option value="female">female</option>
                   <option value="male">male</option>
@@ -76,6 +114,7 @@ class ProfileCard extends React.Component {
                   id="marital_status"
                   className="form-control"
                   name="marital_status"
+                  onChange={e => this.handleChange(e)}
                 >
                   <option value="">marital_status</option>
                   <option value="single">single</option>
@@ -92,6 +131,7 @@ class ProfileCard extends React.Component {
                   id="education"
                   className="form-control"
                   name="education"
+                  onChange={e => this.handleChange(e)}
                 >
                   <option value="">education</option>
                   <option value="highschool">highschool</option>
@@ -108,12 +148,17 @@ class ProfileCard extends React.Component {
                   className="form-control"
                   name="avaiable_for_work"
                   placeholder="avaiable_for_work"
+                  onChange={e => this.handleChange(e)}
                 />
               </div>
 
               <div className="form-group col-md-6">
                 <label htmlFor="trade">Have you learned a trade?</label>
-                <select className="form-control" name="trade">
+                <select
+                  className="form-control"
+                  name="trade"
+                  onChange={e => this.handleChange(e)}
+                >
                   <option value="">trade</option>
                   <option value="true">true</option>
                   <option value="false">false</option>
@@ -127,6 +172,7 @@ class ProfileCard extends React.Component {
                   id="experience"
                   className="form-control"
                   name="experience"
+                  onChange={e => this.handleChange(e)}
                 >
                   <option value="">experience</option>
                   <option value="skilled">skilled</option>
@@ -142,8 +188,9 @@ class ProfileCard extends React.Component {
                   type="text"
                   id="image"
                   className="form-control"
-                  name="image"
+                  name="avatar"
                   placeholder="selfie"
+                  onChange={e => this.handleChange(e)}
                 />
               </div>
               <div className="form-group col-md-6 offset-md-5">
