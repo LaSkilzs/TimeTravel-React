@@ -44,6 +44,23 @@ class API {
     return data;
   }
 
+  static async next(page, endpoint) {
+    const response = await fetch(
+      `http://localhost:3000/api/v1/${endpoint}?page=${page}`
+    );
+    const data = await response.json();
+    return data;
+  }
+  static async prev(page, endpoint) {
+    const response = await fetch(
+      `http://localhost:3000/api/v1/${endpoint}?page=${page}`
+    );
+    const data = await response.json();
+    return data;
+  }
+
+  // PATCH METHODS
+
   static async editProfile(profile) {
     console.log("createProfile", profile);
     const response = await fetch(
@@ -86,4 +103,21 @@ class API {
     console.log("createUser response", data);
     return data;
   }
+
+  static async prev(url) {
+    console.log("prev", url);
+    const response = await fetch(`${url}`);
+    const data = await response.json();
+    console.log("prev paginate", data);
+    return data;
+  }
+  static async next(url) {
+    console.log("next", url);
+    const response = await fetch(`${url}`);
+    const data = await response.json();
+    console.log("next paginate", data);
+    return data;
+  }
 }
+
+export default API;
