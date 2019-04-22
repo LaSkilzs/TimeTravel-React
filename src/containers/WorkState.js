@@ -74,6 +74,7 @@ class WorkState extends React.Component {
       <React.Fragment>
         <FactState />
         <Title title={this.state.title} />
+        <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
         {helpwanted[this.state.length]}
         <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
       </React.Fragment>
