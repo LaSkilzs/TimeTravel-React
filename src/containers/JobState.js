@@ -30,7 +30,6 @@ class JobState extends React.Component {
   }
 
   handlePrev = e => {
-    e.preventDefault();
     if (this.state.paginate.current_page) {
       API.prev(this.state.paginate.prev_page_url).then(data =>
         this.setState({
@@ -42,7 +41,6 @@ class JobState extends React.Component {
   };
 
   handleNext = e => {
-    e.preventDefault();
     if (this.state.paginate.current_page) {
       API.next(this.state.paginate.next_page_url).then(data =>
         this.setState({

@@ -27,10 +27,7 @@ class HomeState extends React.Component {
   }
 
   handlePrev = e => {
-    e.preventDefault();
-    console.log(this.state.length - 1);
     if (this.state.length === 1) {
-      console.log(this.state.length);
       API.prev(this.state.paginate.prev_page_url).then(data =>
         this.setState({
           industries: data.industries,
@@ -44,7 +41,6 @@ class HomeState extends React.Component {
 
   handleNext = e => {
     e.preventDefault();
-    console.log(this.state.length + 1);
     if (this.state.length === 4) {
       API.next(this.state.paginate.next_page_url).then(data =>
         this.setState({

@@ -4,7 +4,6 @@ import Profile from "../components/Profile";
 import Pagination from "../components/Pagination";
 import FactState from "./FactState";
 import API from "../API";
-import Utility from "../Utility";
 
 class WorkState extends React.Component {
   constructor() {
@@ -28,10 +27,7 @@ class WorkState extends React.Component {
   }
 
   handlePrev = e => {
-    e.preventDefault();
-    console.log(this.state.length - 1);
     if (this.state.length === 1) {
-      console.log(this.state.length);
       API.prev(this.state.paginate.prev_page_url).then(data =>
         this.setState({
           helpwanteds: data.helpwanteds,
@@ -44,8 +40,6 @@ class WorkState extends React.Component {
   };
 
   handleNext = e => {
-    e.preventDefault();
-    console.log(this.state.length + 1);
     if (this.state.length === 4) {
       API.next(this.state.paginate.next_page_url).then(data =>
         this.setState({
