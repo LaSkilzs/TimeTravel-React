@@ -27,7 +27,7 @@ class WorkState extends React.Component {
   }
 
   handlePrev = e => {
-    if (this.state.length === 1) {
+    if (this.state.helpwanteds.length < 2 || this.state.length === 1) {
       API.prev(this.state.paginate.prev_page_url).then(data =>
         this.setState({
           helpwanteds: data.helpwanteds,
@@ -40,7 +40,7 @@ class WorkState extends React.Component {
   };
 
   handleNext = e => {
-    if (this.state.length === 4) {
+    if (this.state.helpwanteds.length < 2 || this.state.length === 4) {
       API.next(this.state.paginate.next_page_url).then(data =>
         this.setState({
           helpwanteds: data.helpwanteds,
@@ -61,6 +61,7 @@ class WorkState extends React.Component {
           card={this.state.card}
           helpwanted={helpwanted}
           key={helpwanted.id}
+          handleHelpwanted={this.props.info}
         />
       );
     });

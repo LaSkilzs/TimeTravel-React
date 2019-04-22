@@ -44,21 +44,6 @@ class API {
     return data;
   }
 
-  static async next(page, endpoint) {
-    const response = await fetch(
-      `http://localhost:3000/api/v1/${endpoint}?page=${page}`
-    );
-    const data = await response.json();
-    return data;
-  }
-  static async prev(page, endpoint) {
-    const response = await fetch(
-      `http://localhost:3000/api/v1/${endpoint}?page=${page}`
-    );
-    const data = await response.json();
-    return data;
-  }
-
   // PATCH METHODS
 
   static async editProfile(profile) {
