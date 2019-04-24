@@ -59,12 +59,7 @@ const ContentCard = ({
           </ul>
           <div className="float-right">
             <Link to="/form/application">
-              <button
-                className="btn-success"
-                onClick={() => handleHelpwanted(helpwanted)}
-              >
-                apply
-              </button>
+              <button className="btn-success">apply</button>
             </Link>
             <button
               type="button"
@@ -74,7 +69,6 @@ const ContentCard = ({
             >
               details
             </button>
-            <button className="btn-danger">delete</button>
           </div>
         </div>
       </div>

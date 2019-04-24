@@ -30,7 +30,6 @@ const JobCard = ({ showDetailsCard, job }) => {
               >
                 details
               </button>
-              <button className="btn-danger">delete</button>
             </div>
           </div>
         </div>
