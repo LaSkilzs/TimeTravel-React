@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../components/Title";
+import PropTypes from "prop-types";
 import API from "../API";
 
 class ApplicationCard extends React.Component {
@@ -45,6 +46,7 @@ class ApplicationCard extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
+    const { helpwanted_id, profile_id } = this.props;
     return (
       <div className="container pt-4">
         <div className="row card">
@@ -62,7 +64,6 @@ class ApplicationCard extends React.Component {
                     onChange={e => this.handleChange(e)}
                   />
                 </div>
-
                 <div className="form-group col-md-6">
                   <label htmlFor="citizenship">Are you a US Citizen?</label>
                   <select
@@ -230,6 +231,22 @@ class ApplicationCard extends React.Component {
                   </select>
                 </div>
               </div>
+              <div className="form-group col-md-6">
+                <input
+                  type="hidden"
+                  className="form-control"
+                  name="helpwanted_id"
+                  value={helpwanted_id}
+                />
+              </div>
+              <div className="form-group col-md-6">
+                <input
+                  type="hidden"
+                  className="form-control"
+                  name="profile_id"
+                  value={profile_id}
+                />
+              </div>
               <div className="form-group col-md-6 offset-md-5 py-5">
                 <button type="submit" className="btn btn-primary">
                   Register
@@ -244,3 +261,14 @@ class ApplicationCard extends React.Component {
 }
 
 export default ApplicationCard;
+
+ApplicationCard.propTypes = {
+  helpwanted_id: PropTypes.number,
+  profile_id: PropTypes.number,
+  user_id: PropTypes.number
+};
+ApplicationCard.defaultProps = {
+  helpwanted_id: 0,
+  profile_id: 0,
+  user_id: 0
+};

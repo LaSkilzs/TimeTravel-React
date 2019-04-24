@@ -2,7 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const ContentCard = ({ card, industry, helpwanted, profile }) => {
+const ContentCard = ({
+  card,
+  industry,
+  helpwanted,
+  profile,
+  handleHelpwanted
+}) => {
+  console.log(handleHelpwanted);
   if (card === "home") {
     return (
       <div className="card col-7 mb-5">
@@ -62,7 +69,6 @@ const ContentCard = ({ card, industry, helpwanted, profile }) => {
             >
               details
             </button>
-            <button className="btn-danger">delete</button>
           </div>
         </div>
       </div>

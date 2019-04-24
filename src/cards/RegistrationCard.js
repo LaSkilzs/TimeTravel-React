@@ -8,7 +8,8 @@ class RegistrationCard extends React.Component {
     this.state = {
       username: "",
       email: "",
-      password: ""
+      password: "",
+      user_id: 0
     };
   }
 
@@ -69,6 +70,14 @@ class RegistrationCard extends React.Component {
                 placeholder="Confirm Password"
                 required="required"
                 onChange={e => this.handleChange(e)}
+              />
+            </div>
+            <div className="form-group col-md-6">
+              <input
+                type="hidden"
+                className="form-control"
+                name="user_id"
+                value={this.props.user_id}
               />
             </div>
           </div>

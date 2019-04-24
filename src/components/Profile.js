@@ -19,6 +19,7 @@ const Profile = props => {
               industry={props.industry}
               helpwanted={props.helpwanted}
               profile={props.profile}
+              handleHelpwanted={props.handleHelpwanted}
             />
           </div>
         </div>

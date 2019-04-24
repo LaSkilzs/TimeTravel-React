@@ -1,6 +1,6 @@
 import React from "react";
-import Filter from "../components/Filter";
-import Search from "../components/Search";
+import Filter from "./Filter";
+import Search from "./Search";
 
 const Utility = props => {
   return (

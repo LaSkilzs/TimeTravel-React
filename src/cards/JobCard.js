@@ -14,8 +14,13 @@ const JobCard = ({ showDetailsCard, job }) => {
               <p>{job.job_description}</p>
             </div>
             <div className="float-right">
-              <Link to="/form/application">
-                <button className="btn-success">apply</button>
+              <Link to="/work">
+                <button
+                  className="btn-success"
+                  onClick={() => console.log("jobcard", job)}
+                >
+                  wantads
+                </button>
               </Link>
               <button
                 type="button"
@@ -25,7 +30,6 @@ const JobCard = ({ showDetailsCard, job }) => {
               >
                 details
               </button>
-              <button className="btn-danger">delete</button>
             </div>
           </div>
         </div>
