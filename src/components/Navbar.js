@@ -28,6 +28,15 @@ const Navbar = props => {
             </li>
             <li className="nav-item">
               <Link
+                to="/welcome"
+                className="nav-link"
+                activestyle={{ color: "#316bb0" }}
+              >
+                welcome
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
                 to="/home"
                 className="nav-link"
                 activestyle={{ color: "#316bb0" }}

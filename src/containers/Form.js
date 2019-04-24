@@ -15,10 +15,7 @@ const Form = ({ match, props }) => {
         <Switch>
           <Route path="/form/login" component={LoginCard} />
           <Route path="/form/register" component={RegistrationCard} />
-          <Route
-            path="/form/application"
-            component={props => <ApplicationCard id={props} />}
-          />
+          <Route path="/form/application" component={ApplicationCard} />
           <Route path="/form/profile" component={ProfileCard} />
         </Switch>
       </div>

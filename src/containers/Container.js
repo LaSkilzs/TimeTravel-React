@@ -6,6 +6,7 @@ import ProfileState from "./ProfileState";
 import JobState from "./JobState";
 import Form from "./Form";
 import SeeMoreCard from "../cards/SeeMoreCard";
+import Welcome from "../components/Welcome";
 
 class Container extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Container extends Component {
       <section id="main">
         <div className="main container">
           <Switch>
+            <Route exact path="/welcome" component={Welcome} />
             <Route exact path="/home" component={HomeState} />
             <Route path="/profile" component={ProfileState} />
             <Route path="/jobs" component={JobState} />
@@ -35,12 +37,14 @@ class Container extends Component {
                 <WorkState info={this.handleHelpwanted} {...routerProps} />
               )}
             />
+
             <Route
               path="/form/:name"
               render={routerProps => (
-                <Form info={this.state} {...routerProps} />
+                <Form info={this.state.info} {...routerProps} />
               )}
             />
+            <Route render={() => <h1>404 Error</h1>} />
           </Switch>
           <SeeMoreCard />
         </div>

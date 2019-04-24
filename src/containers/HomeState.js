@@ -10,7 +10,7 @@ class HomeState extends React.Component {
     super();
     this.state = {
       industries: [],
-      title: "Job Seekers",
+      title: "Work Industries",
       card: "home",
       paginate: [],
       length: 0
@@ -62,7 +62,7 @@ class HomeState extends React.Component {
     });
     return (
       <React.Fragment>
-        <FactState />
+        {/* <FactState /> */}
         <Title title={this.state.title} />
         <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
         {industry[this.state.length]}

@@ -28,7 +28,7 @@ class ProfileState extends React.Component {
     });
     return (
       <React.Fragment>
-        <FactState />
+        {/* <FactState /> */}
         <Title title={this.state.title} />
         {profile[0]}
         <Pagination />

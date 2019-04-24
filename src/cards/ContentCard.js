@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import HelpwantedCard from "./HelpwantedCard";
 
 const ContentCard = ({
   card,
@@ -27,11 +28,8 @@ const ContentCard = ({
             </li>
           </ul>
           <div className="float-right">
-            <Link to="/helpwantad">
-              <button className="btn-success">wantads</button>
-            </Link>
-            <Link to="/work">
-              <button className="btn-primary">jobs</button>
+            <Link to="/jobs">
+              <button className="btn-primary">industry jobs</button>
             </Link>
           </div>
         </div>
@@ -58,9 +56,7 @@ const ContentCard = ({
             </li>
           </ul>
           <div className="float-right">
-            <Link to="/form/application">
-              <button className="btn-success">apply</button>
-            </Link>
+            <HelpwantedCard />
             <button
               type="button"
               className=" btn-primary"

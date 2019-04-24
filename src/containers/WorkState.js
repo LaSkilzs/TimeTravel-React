@@ -3,6 +3,7 @@ import Title from "../components/Title";
 import Profile from "../components/Profile";
 import Pagination from "../components/Pagination";
 import FactState from "./FactState";
+import Form from "./Form";
 import API from "../API";
 
 class WorkState extends React.Component {
@@ -11,7 +12,7 @@ class WorkState extends React.Component {
     this.state = {
       helpwanteds: [],
       jobs: [],
-      title: "Helpwanted",
+      title: "WantAds",
       card: "work",
       paginate: [],
       length: 0
@@ -67,7 +68,7 @@ class WorkState extends React.Component {
     });
     return (
       <React.Fragment>
-        <FactState />
+        {/* <FactState /> */}
         <Title title={this.state.title} />
         <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
         {helpwanted[this.state.length]}
