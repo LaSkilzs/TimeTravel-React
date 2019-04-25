@@ -6,19 +6,18 @@ import ProfileState from "./ProfileState";
 import JobState from "./JobState";
 import Form from "./Form";
 import SeeMoreCard from "../cards/SeeMoreCard";
+import Welcome from "../components/Welcome";
 
 class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      helpwanted_id: 0,
-      profile_id: 0,
-      user_id: 0
+      helpwanteds: 0,
+      jobs: 0,
+      industry: {},
+      parent: "container"
     };
   }
-
-  handleHelpwanted = helpwanted_id => this.setState({ helpwanted_id });
-  handleProfile = profile_id => this.setState({ profile_id });
 
   render() {
     console.log(this.state);
@@ -26,21 +25,30 @@ class Container extends Component {
       <section id="main">
         <div className="main container">
           <Switch>
-            <Route exact path="/home" component={HomeState} />
-            <Route path="/profile" component={ProfileState} />
-            <Route path="/jobs" component={JobState} />
+            <Route exact path="/welcome" component={Welcome} />
+            <Route
+              exact
+              path="/home"
+              render={routerProps => <HomeState {...routerProps} />}
+            />
+            <Route
+              path="/jobs"
+              render={routerProps => (
+                <JobState parent={this.state.parent} {...routerProps} />
+              )}
+            />
             <Route
               path="/work"
               render={routerProps => (
-                <WorkState info={this.handleHelpwanted} {...routerProps} />
+                <WorkState {...routerProps} parent={this.state.parent} />
               )}
             />
             <Route
               path="/form/:name"
-              render={routerProps => (
-                <Form info={this.state} {...routerProps} />
-              )}
+              render={routerProps => <Form {...routerProps} />}
             />
+            <Route path="/profile" component={ProfileState} />
+            <Route render={() => <h1>404 Error</h1>} />
           </Switch>
           <SeeMoreCard />
         </div>

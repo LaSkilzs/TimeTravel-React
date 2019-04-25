@@ -18,8 +18,8 @@ class RegistrationCard extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-    // const user = this.state;
-    // API.createUser(user);
+    const user = this.state;
+    API.createUser(user);
     this.setState({ username: "", email: "", password: "" });
   };
 

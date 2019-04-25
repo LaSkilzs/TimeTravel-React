@@ -43,6 +43,22 @@ class API {
     console.log("createuser response", data);
     return data;
   }
+  static async getJobsByIndustry(industry) {
+    const response = await fetch(
+      `http://localhost:3000/api/v1/industries/${industry.id}/filtered`
+    );
+    const data = await response.json();
+    console.log("filtered jobs", data);
+    return data;
+  }
+  static async getHelpwantedsByJobs(job) {
+    const response = await fetch(
+      `http://localhost:3000/api/v1/jobs/${job.id}/filtered`
+    );
+    const data = await response.json();
+    console.log("filtered helpwanted", data);
+    return data;
+  }
 
   // PATCH METHODS
 

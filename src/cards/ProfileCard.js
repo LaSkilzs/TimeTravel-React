@@ -26,8 +26,8 @@ class ProfileCard extends React.Component {
     e.preventDefault();
     this.handleName();
     console.log(this.state);
-    // const profile = this.state;
-    // API.createProfile(profile)
+    const profile = this.state;
+    API.createProfile(profile);
     this.setState({
       age: "",
       available_for_work: "",

@@ -1,15 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Applications from "../containers/Applications";
 
 const ContentCard = ({
   card,
   industry,
   helpwanted,
   profile,
-  handleHelpwanted
+  getJobs,
+  switchButton,
+  goReset
 }) => {
-  console.log(handleHelpwanted);
   if (card === "home") {
     return (
       <div className="card col-7 mb-5">
@@ -27,12 +29,15 @@ const ContentCard = ({
             </li>
           </ul>
           <div className="float-right">
-            <Link to="/helpwantad">
-              <button className="btn-success">wantads</button>
-            </Link>
-            <Link to="/work">
-              <button className="btn-primary">jobs</button>
-            </Link>
+            {switchButton ? (
+              <button className="btn-primary" onClick={e => goReset()}>
+                back
+              </button>
+            ) : (
+              <button className="btn-primary" onClick={() => getJobs(industry)}>
+                industry jobs
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -58,17 +63,10 @@ const ContentCard = ({
             </li>
           </ul>
           <div className="float-right">
-            <Link to="/form/application">
-              <button className="btn-success">apply</button>
+            <Applications type="helpwanted" />
+            <Link to="/jobs">
+              <button className="btn-primary">save</button>
             </Link>
-            <button
-              type="button"
-              className=" btn-primary"
-              data-toggle="modal"
-              data-target="#exampleModalCenter"
-            >
-              details
-            </button>
           </div>
         </div>
       </div>
@@ -97,11 +95,9 @@ const ContentCard = ({
           </ul>
           <div className="float-right">
             <Link to="/form/profile">
-              <button className="btn-success">edit</button>
+              <button className="btn-primary">edit</button>
             </Link>
-            <Link to="/form/profile">
-              <button className="btn-primary">new</button>
-            </Link>
+            <Applications type="profile" />
             <button className="btn-danger">delete</button>
           </div>
         </div>

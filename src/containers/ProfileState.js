@@ -2,7 +2,6 @@ import React from "react";
 import Title from "../components/Title";
 import Profile from "../components/Profile";
 import Pagination from "../components/Pagination";
-import FactState from "./FactState";
 import JobCard from "../cards/JobCard";
 
 class ProfileState extends React.Component {
@@ -28,7 +27,6 @@ class ProfileState extends React.Component {
     });
     return (
       <React.Fragment>
-        <FactState />
         <Title title={this.state.title} />
         {profile[0]}
         <Pagination />

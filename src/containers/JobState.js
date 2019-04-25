@@ -9,11 +9,13 @@ class JobState extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      filterJobs: [],
       jobs: [],
       title: "Find Work",
       card: "job",
       showDetails: false,
-      paginate: []
+      paginate: [],
+      industry: 0
     };
   }
   handleDetails = () => {
@@ -53,36 +55,70 @@ class JobState extends React.Component {
 
   render() {
     console.log(this.state.jobs);
-    return (
-      <div id="job-container">
-        <Title title={this.state.title} />
-        <Manager />
-        <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
-        <section id="jobcard">
-          <div className="title-changers" />
-          <div className="m-3 employmentsection">
-            <div className="job-container">
-              <div id="jobs-section" className="row card">
-                {this.state.jobs.map(job => {
-                  return (
-                    <JobCard
-                      showDetailsCard={this.state.showDetails}
-                      handleDetails={this.handleDetails}
-                      key={job.id}
-                      job={job}
-                    />
-                  );
-                })}
+    if (this.props.parent === "home") {
+      return (
+        <div id="job-container">
+          <Title title={this.state.title} />
+          <Manager />
+          <section id="jobcard">
+            <div className="title-changers" />
+            <div className="m-3 employmentsection">
+              <div className="job-container">
+                <div id="jobs-section" className="row card">
+                  {this.props.jobs.map(job => {
+                    return (
+                      <JobCard
+                        showDetailsCard={this.state.showDetails}
+                        handleDetails={this.handleDetails}
+                        key={job.id}
+                        job={job}
+                        parent={this.props.parent}
+                        getHelpwanteds={this.props.getHelpwanteds}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
-          </div>
+          </section>
+        </div>
+      );
+    } else {
+      return (
+        <div id="job-container">
+          <Title title={this.state.title} />
+          <Manager />
           <Pagination
             handleNext={this.handleNext}
             handlePrev={this.handlePrev}
           />
-        </section>
-      </div>
-    );
+          <section id="jobcard">
+            <div className="title-changers" />
+            <div className="m-3 employmentsection">
+              <div className="job-container">
+                <div id="jobs-section" className="row card">
+                  {this.state.jobs.map(job => {
+                    return (
+                      <JobCard
+                        showDetailsCard={this.state.showDetails}
+                        handleDetails={this.handleDetails}
+                        key={job.id}
+                        job={job}
+                        getHelpwanteds={this.props.getHelpwanteds}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            <Pagination
+              handleNext={this.handleNext}
+              handlePrev={this.handlePrev}
+            />
+          </section>
+        </div>
+      );
+    }
   }
 }
 

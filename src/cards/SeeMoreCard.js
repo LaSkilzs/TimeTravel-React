@@ -3,19 +3,7 @@ import PropTypes from "prop-types";
 
 const SeeMoreCard = props => {
   return (
-    // <div className="card">
-    //   <div className="card-body seemore">
-    //     <div className="container see-content">
     <React.Fragment>
-      {/* <button
-        type="button"
-        class="btn btn-primary"
-        data-toggle="modal"
-        data-target="#exampleModalCenter"
-      >
-        details
-      </button> */}
-
       <div
         className="modal fade"
         id="exampleModalCenter"
@@ -80,9 +68,6 @@ const SeeMoreCard = props => {
         </div>
       </div>
     </React.Fragment>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

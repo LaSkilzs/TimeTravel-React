@@ -1,7 +1,6 @@
 import React from "react";
 import Title from "../components/Title";
 import PropTypes from "prop-types";
-import API from "../API";
 
 class ApplicationCard extends React.Component {
   constructor(props) {
@@ -250,6 +249,13 @@ class ApplicationCard extends React.Component {
               <div className="form-group col-md-6 offset-md-5 py-5">
                 <button type="submit" className="btn btn-primary">
                   Register
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Close
                 </button>
               </div>
             </form>

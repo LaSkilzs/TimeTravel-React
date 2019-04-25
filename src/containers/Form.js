@@ -7,18 +7,13 @@ import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
 
 const Form = ({ match, props }) => {
-  console.log(match);
-  console.log(props);
   return (
     <div className="form-container">
       <div className="row">
         <Switch>
           <Route path="/form/login" component={LoginCard} />
           <Route path="/form/register" component={RegistrationCard} />
-          <Route
-            path="/form/application"
-            component={props => <ApplicationCard id={props} />}
-          />
+          <Route path="/form/application" component={ApplicationCard} />
           <Route path="/form/profile" component={ProfileCard} />
         </Switch>
       </div>
