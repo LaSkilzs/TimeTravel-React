@@ -1,4 +1,16 @@
 class API {
+  static async loadData() {
+    const resIndy = await fetch("http://localhost:3000/api/v1/industries");
+    const resJobs = await fetch("http://localhost:3000/api/v1/jobs");
+    const resHelp = await fetch("http://localhost:3000/api/v1/helpwanteds");
+    const industries = await resIndy.json();
+    const jobs = await resJobs.json();
+    const helpwanteds = await resHelp.json();
+    console.log(industries);
+    console.log(jobs);
+    console.log(helpwanteds);
+    return { industries, jobs, helpwanteds };
+  }
   static async createProfile(profile) {
     console.log("createProfile", profile);
     const response = await fetch("http://localhost:3000/api/v1/profiles", {

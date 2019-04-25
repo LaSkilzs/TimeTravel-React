@@ -73,7 +73,6 @@ class JobState extends React.Component {
                         key={job.id}
                         job={job}
                         parent={this.props.parent}
-                        getHelpwanteds={this.props.getHelpwanteds}
                       />
                     );
                   })}
@@ -104,7 +103,6 @@ class JobState extends React.Component {
                         handleDetails={this.handleDetails}
                         key={job.id}
                         job={job}
-                        getHelpwanteds={this.props.getHelpwanteds}
                       />
                     );
                   })}

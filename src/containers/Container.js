@@ -7,11 +7,15 @@ import JobState from "./JobState";
 import Form from "./Form";
 import SeeMoreCard from "../cards/SeeMoreCard";
 import Welcome from "../components/Welcome";
+import API from "../API";
 
 class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      homestate: {},
+      jobstate: {},
+      workstate: {},
       helpwanteds: 0,
       jobs: 0,
       industry: {},
@@ -19,8 +23,31 @@ class Container extends Component {
     };
   }
 
+  async componentDidMount() {
+    API.loadData().then(data => {
+      this.setState({
+        homestate: data.industries,
+        jobstate: data.jobs,
+        workstate: data.helpwanteds
+      });
+    });
+  }
+
+  getHelpwanteds = job => {
+    fetch(`http://localhost:3000/api/v1/jobs/${job.id}/filtered`)
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          helpwanteds: data.helpwanteds,
+          paginate: data.pagination,
+          data: "home"
+        })
+      );
+    console.log("help completed");
+  };
+
   render() {
-    console.log(this.state);
+    console.log("state", this.state);
     return (
       <section id="main">
         <div className="main container">
