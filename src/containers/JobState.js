@@ -55,7 +55,7 @@ class JobState extends React.Component {
 
   render() {
     console.log(this.state.jobs);
-    if (this.props.parent === "home") {
+    if (this.props.card === "home") {
       return (
         <div id="job-container">
           <Title title={this.state.title} />
@@ -72,7 +72,6 @@ class JobState extends React.Component {
                         handleDetails={this.handleDetails}
                         key={job.id}
                         job={job}
-                        parent={this.props.parent}
                       />
                     );
                   })}

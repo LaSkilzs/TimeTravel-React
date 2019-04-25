@@ -16,10 +16,11 @@ class Container extends Component {
       homestate: {},
       jobstate: {},
       workstate: {},
-      helpwanteds: 0,
-      jobs: 0,
+      job: {},
       industry: {},
-      parent: "container"
+      parent: "container",
+      data: "",
+      switchbutton: false
     };
   }
 
@@ -33,18 +34,31 @@ class Container extends Component {
     });
   }
 
+  getJobs = industry => {
+    API.getJobsByIndustry(industry).then(data => {
+      this.setState({
+        jobstate: data,
+        data: "jobs",
+        industry: data.industry,
+        switchButton: true
+      });
+    });
+    console.log("api", this.state);
+  };
   getHelpwanteds = job => {
     fetch(`http://localhost:3000/api/v1/jobs/${job.id}/filtered`)
       .then(response => response.json())
       .then(data =>
         this.setState({
-          helpwanteds: data.helpwanteds,
-          paginate: data.pagination,
+          workstate: data,
           data: "home"
         })
       );
     console.log("help completed");
   };
+
+  goResetHelpWanted = e => this.setState({ data: "work", switchButton: false });
+  goReset = e => this.setState({ data: "container", switchButton: false });
 
   render() {
     console.log("state", this.state);
@@ -56,7 +70,14 @@ class Container extends Component {
             <Route
               exact
               path="/home"
-              render={routerProps => <HomeState {...routerProps} />}
+              render={routerProps => (
+                <HomeState
+                  {...routerProps}
+                  getJobs={this.getJobs}
+                  switchButton={this.state.switchButton}
+                  goReset={this.goReset}
+                />
+              )}
             />
             <Route
               path="/jobs"

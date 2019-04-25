@@ -3,7 +3,6 @@ import Title from "../components/Title";
 import Profile from "../components/Profile";
 import Pagination from "../components/Pagination";
 import JobState from "./JobState";
-import WorkState from "./WorkState";
 import API from "../API";
 
 class HomeState extends React.Component {
@@ -16,15 +15,7 @@ class HomeState extends React.Component {
       paginate: [],
       length: 0,
       jobs: [],
-      industry: {},
-      parent: "home",
-      data: "",
-      switchButton: false,
-      flength: 0,
-      job: {},
-      filteredHelpwanteds: [],
-      paginateHelp: [],
-      retrieve: {}
+      industry: {}
     };
   }
 
@@ -36,32 +27,6 @@ class HomeState extends React.Component {
       paginate: industries.pagination
     });
   }
-
-  goResetHelpWanted = e => this.setState({ data: "work", switchButton: false });
-  goReset = e => this.setState({ data: "container", switchButton: false });
-  getJobs = industry => {
-    API.getJobsByIndustry(industry).then(data => {
-      this.setState({
-        jobs: data.jobs,
-        data: "jobs",
-        industry: data.industry,
-        switchButton: true
-      });
-    });
-    console.log("api", this.state);
-  };
-
-  getHelpwanteds = job => {
-    fetch(`http://localhost:3000/api/v1/jobs/${job.id}/filtered`)
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          filteredHelpwanteds: data.helpwanteds,
-          paginateHelp: data.pagination,
-          data: "home"
-        })
-      );
-  };
 
   handlePrev = e => {
     if (this.state.length === 1) {
@@ -90,31 +55,6 @@ class HomeState extends React.Component {
     }
   };
 
-  handleHelpPrev = e => {
-    if (this.state.helpwanteds.length < 2 || this.state.flength === 1) {
-      API.prev(this.state.paginateHelp.prev_page_url).then(data =>
-        this.setState({
-          helpwanteds: data.helpwanteds,
-          paginateHelp: data.pagination
-        })
-      );
-    } else {
-      this.setState({ flength: this.state.flength - 1 });
-    }
-  };
-  handleHelpNext = e => {
-    if (this.state.helpwanteds.length < 2 || this.state.flength === 4) {
-      API.next(this.state.paginateHelp.next_page_url).then(data =>
-        this.setState({
-          helpwanteds: data.helpwanteds,
-          paginateHelp: data.pagination
-        })
-      );
-    } else {
-      this.setState({ flength: this.state.flength + 1 });
-    }
-  };
-
   render() {
     let industry = this.state.industries.map(industry => {
       return (
@@ -122,32 +62,27 @@ class HomeState extends React.Component {
           card={this.state.card}
           industry={industry}
           key={industry.id}
-          getJobs={this.getJobs}
+          getJobs={this.props.getJobs}
         />
       );
     });
 
-    if (this.state.data === "jobs") {
+    if (this.props.data === "jobs") {
       return (
         <React.Fragment>
           <React.Fragment>
             <Title title={this.state.title} />
             <Profile
               card={this.state.card}
-              industry={this.state.industry}
-              key={this.state.industry.id}
-              getJobs={this.getJobs}
-              switchButton={this.state.switchButton}
-              goReset={this.goReset}
-              getHelpwanteds={this.getHelpwanteds}
+              industry={this.props.industry}
+              key={this.props.industry.id}
+              getJobs={this.props.getJobs}
+              switchButton={this.props.switchButton}
+              goReset={this.props.goReset}
             />
             );
           </React.Fragment>
-          <JobState
-            jobs={this.state.jobs}
-            parent={this.state.parent}
-            getHelpwanteds={this.getHelpwanteds}
-          />
+          <JobState jobs={this.props.jobs} card={this.state.card} />
         </React.Fragment>
       );
     } else {
