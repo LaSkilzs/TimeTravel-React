@@ -150,24 +150,6 @@ class HomeState extends React.Component {
           />
         </React.Fragment>
       );
-    } else if (this.state.data === "helpwanteds") {
-      return (
-        <React.Fragment>
-          <WorkState
-            helpwanteds={this.state.filteredHelpwanteds}
-            paginate={this.paginateHelp}
-            handleHelpPrev={this.handleHelpPrev}
-            handleHelpNext={this.handleHelpNext}
-            parent={this.state.parent}
-          />
-          <JobState
-            job={this.state.job}
-            paginate={this.jobsPaginate}
-            parent={this.state.parent}
-            helpwanteds={this.state.helpwanteds}
-          />
-        </React.Fragment>
-      );
     } else {
       return (
         <React.Fragment>

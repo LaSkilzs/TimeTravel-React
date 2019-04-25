@@ -45,9 +45,7 @@ class Container extends Component {
             />
             <Route
               path="/form/:name"
-              render={routerProps => (
-                <Form info={this.state.info} {...routerProps} />
-              )}
+              render={routerProps => <Form {...routerProps} />}
             />
             <Route path="/profile" component={ProfileState} />
             <Route render={() => <h1>404 Error</h1>} />
