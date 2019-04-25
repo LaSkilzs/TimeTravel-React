@@ -20,6 +20,13 @@ const Profile = props => {
               helpwanted={props.helpwanted}
               profile={props.profile}
               handleHelpwanted={props.handleHelpwanted}
+              getJobs={props.getJobs}
+              switchButton={props.switchButton}
+              goReset={props.goReset}
+              getHelpwanteds={props.getHelpwanteds}
+              // switchHelpButton={props.switchHelpButton}
+              // goResetHelpWanted={props.goReset}
+              // job={props.job}
             />
           </div>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const JobCard = ({ showDetailsCard, job }) => {
+const JobCard = ({ showDetailsCard, job, getHelpwanteds }) => {
   if (!showDetailsCard) {
     return (
       <React.Fragment>
@@ -17,7 +17,7 @@ const JobCard = ({ showDetailsCard, job }) => {
               <Link to="/work">
                 <button
                   className="btn-success"
-                  onClick={() => console.log("jobcard", job)}
+                  onClick={() => getHelpwanteds(job)}
                 >
                   wantads
                 </button>

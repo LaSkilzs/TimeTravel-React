@@ -7,8 +7,6 @@ import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
 
 const Form = ({ match, props }) => {
-  console.log(match);
-  console.log(props);
   return (
     <div className="form-container">
       <div className="row">

@@ -2,7 +2,8 @@ import React from "react";
 import Title from "../components/Title";
 import Profile from "../components/Profile";
 import Pagination from "../components/Pagination";
-import FactState from "./FactState";
+import JobState from "./JobState";
+import WorkState from "./WorkState";
 import API from "../API";
 
 class HomeState extends React.Component {
@@ -13,7 +14,17 @@ class HomeState extends React.Component {
       title: "Work Industries",
       card: "home",
       paginate: [],
-      length: 0
+      length: 0,
+      jobs: [],
+      industry: {},
+      parent: "home",
+      data: "",
+      switchButton: false,
+      flength: 0,
+      job: {},
+      filteredHelpwanteds: [],
+      paginateHelp: [],
+      retrieve: {}
     };
   }
 
@@ -25,6 +36,32 @@ class HomeState extends React.Component {
       paginate: industries.pagination
     });
   }
+
+  goResetHelpWanted = e => this.setState({ data: "work", switchButton: false });
+  goReset = e => this.setState({ data: "container", switchButton: false });
+  getJobs = industry => {
+    API.getJobsByIndustry(industry).then(data => {
+      this.setState({
+        jobs: data.jobs,
+        data: "jobs",
+        industry: data.industry,
+        switchButton: true
+      });
+    });
+    console.log("api", this.state);
+  };
+
+  getHelpwanteds = job => {
+    fetch(`http://localhost:3000/api/v1/jobs/${job.id}/filtered`)
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          filteredHelpwanteds: data.helpwanteds,
+          paginateHelp: data.pagination,
+          data: "home"
+        })
+      );
+  };
 
   handlePrev = e => {
     if (this.state.length === 1) {
@@ -53,22 +90,100 @@ class HomeState extends React.Component {
     }
   };
 
+  handleHelpPrev = e => {
+    if (this.state.helpwanteds.length < 2 || this.state.flength === 1) {
+      API.prev(this.state.paginateHelp.prev_page_url).then(data =>
+        this.setState({
+          helpwanteds: data.helpwanteds,
+          paginateHelp: data.pagination
+        })
+      );
+    } else {
+      this.setState({ flength: this.state.flength - 1 });
+    }
+  };
+  handleHelpNext = e => {
+    if (this.state.helpwanteds.length < 2 || this.state.flength === 4) {
+      API.next(this.state.paginateHelp.next_page_url).then(data =>
+        this.setState({
+          helpwanteds: data.helpwanteds,
+          paginateHelp: data.pagination
+        })
+      );
+    } else {
+      this.setState({ flength: this.state.flength + 1 });
+    }
+  };
+
   render() {
-    console.log(this.state.industries);
     let industry = this.state.industries.map(industry => {
       return (
-        <Profile card={this.state.card} industry={industry} key={industry.id} />
+        <Profile
+          card={this.state.card}
+          industry={industry}
+          key={industry.id}
+          getJobs={this.getJobs}
+        />
       );
     });
-    return (
-      <React.Fragment>
-        {/* <FactState /> */}
-        <Title title={this.state.title} />
-        <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
-        {industry[this.state.length]}
-        <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
-      </React.Fragment>
-    );
+
+    if (this.state.data === "jobs") {
+      return (
+        <React.Fragment>
+          <React.Fragment>
+            <Title title={this.state.title} />
+            <Profile
+              card={this.state.card}
+              industry={this.state.industry}
+              key={this.state.industry.id}
+              getJobs={this.getJobs}
+              switchButton={this.state.switchButton}
+              goReset={this.goReset}
+              getHelpwanteds={this.getHelpwanteds}
+            />
+            );
+          </React.Fragment>
+          <JobState
+            jobs={this.state.jobs}
+            parent={this.state.parent}
+            getHelpwanteds={this.getHelpwanteds}
+          />
+        </React.Fragment>
+      );
+    } else if (this.state.data === "helpwanteds") {
+      return (
+        <React.Fragment>
+          <WorkState
+            helpwanteds={this.state.filteredHelpwanteds}
+            paginate={this.paginateHelp}
+            handleHelpPrev={this.handleHelpPrev}
+            handleHelpNext={this.handleHelpNext}
+            parent={this.state.parent}
+          />
+          <JobState
+            job={this.state.job}
+            paginate={this.jobsPaginate}
+            parent={this.state.parent}
+            helpwanteds={this.state.helpwanteds}
+          />
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <Title title={this.state.title} />
+          <Pagination
+            handleNext={this.handleNext}
+            handlePrev={this.handlePrev}
+          />
+          {industry[this.state.length]}
+          <Pagination
+            handleNext={this.handleNext}
+            handlePrev={this.handlePrev}
+          />
+        </React.Fragment>
+      );
+    }
   }
 }
 
