@@ -52,7 +52,7 @@ class WorkState extends React.Component {
   };
 
   render() {
-    console.log(this.state.helpwanteds);
+    console.log("workstate:", this.props);
     let helpwanted = this.state.helpwanteds.map(helpwanted => {
       return (
         <Profile

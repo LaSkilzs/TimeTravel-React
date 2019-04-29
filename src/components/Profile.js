@@ -2,7 +2,6 @@ import React from "react";
 import ImageCard from "../cards/ImageCard";
 import ContentCard from "../cards/ContentCard";
 const Profile = props => {
-  console.log(props);
   return (
     <div className="container">
       <div className="card">

@@ -13,23 +13,28 @@ class Container extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      homestate: {},
-      jobstate: {},
-      workstate: {},
-      job: {},
-      industry: {},
+      homestate: [],
+      homepage: [],
+      jobstate: [],
+      jobpage: [],
+      workstate: [],
+      workpage: [],
       parent: "container",
-      data: "",
-      switchbutton: false
+      switchbutton: false,
+      pageChange: false
     };
   }
 
   async componentDidMount() {
     API.loadData().then(data => {
       this.setState({
-        homestate: data.industries,
-        jobstate: data.jobs,
-        workstate: data.helpwanteds
+        homestate: data.industries.industries,
+        homepage: data.industries.pagination,
+        jobstate: data.jobs.jobs,
+        jobpage: data.jobs.pagination,
+        workstate: data.helpwanteds.helpwanteds,
+        workpage: data.helpwanteds.pagination,
+        pageChange: false
       });
     });
   }
@@ -43,8 +48,8 @@ class Container extends Component {
         switchButton: true
       });
     });
-    console.log("api", this.state);
   };
+
   getHelpwanteds = job => {
     fetch(`http://localhost:3000/api/v1/jobs/${job.id}/filtered`)
       .then(response => response.json())
@@ -54,14 +59,12 @@ class Container extends Component {
           data: "home"
         })
       );
-    console.log("help completed");
   };
 
-  goResetHelpWanted = e => this.setState({ data: "work", switchButton: false });
-  goReset = e => this.setState({ data: "container", switchButton: false });
+  goResetHelpWanted = e => this.setState({ switchButton: false });
+  goReset = e => this.setState({ switchButton: false });
 
   render() {
-    console.log("state", this.state);
     return (
       <section id="main">
         <div className="main container">
@@ -76,19 +79,31 @@ class Container extends Component {
                   getJobs={this.getJobs}
                   switchButton={this.state.switchButton}
                   goReset={this.goReset}
+                  industries={this.state.homestate}
+                  pageChange={this.state.pageChange}
                 />
               )}
             />
             <Route
               path="/jobs"
               render={routerProps => (
-                <JobState parent={this.state.parent} {...routerProps} />
+                <JobState
+                  parent={this.state.parent}
+                  {...routerProps}
+                  jobs={this.state.jobstate}
+                />
               )}
             />
             <Route
               path="/work"
               render={routerProps => (
-                <WorkState {...routerProps} parent={this.state.parent} />
+                <WorkState
+                  {...routerProps}
+                  parent={this.state.parent}
+                  helpwanteds={this.state.workstate}
+                  handleNext={this.handleNext}
+                  handlePrev={this.handlePrev}
+                />
               )}
             />
             <Route

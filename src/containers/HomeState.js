@@ -63,44 +63,24 @@ class HomeState extends React.Component {
           industry={industry}
           key={industry.id}
           getJobs={this.props.getJobs}
+          goReset={this.props.goReset}
+          switchButton={this.props.switchButton}
         />
       );
     });
-
-    if (this.props.data === "jobs") {
-      return (
+    return (
+      <React.Fragment>
+        <Title title={this.state.title} />
+        <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
+        {industry[this.state.length]}
+        <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
         <React.Fragment>
-          <React.Fragment>
-            <Title title={this.state.title} />
-            <Profile
-              card={this.state.card}
-              industry={this.props.industry}
-              key={this.props.industry.id}
-              getJobs={this.props.getJobs}
-              switchButton={this.props.switchButton}
-              goReset={this.props.goReset}
-            />
-            );
-          </React.Fragment>
-          <JobState jobs={this.props.jobs} card={this.state.card} />
+          {this.props.jobs ? (
+            <JobState jobs={this.props.jobs} card={this.state.card} />
+          ) : null}
         </React.Fragment>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <Title title={this.state.title} />
-          <Pagination
-            handleNext={this.handleNext}
-            handlePrev={this.handlePrev}
-          />
-          {industry[this.state.length]}
-          <Pagination
-            handleNext={this.handleNext}
-            handlePrev={this.handlePrev}
-          />
-        </React.Fragment>
-      );
-    }
+      </React.Fragment>
+    );
   }
 }
 
