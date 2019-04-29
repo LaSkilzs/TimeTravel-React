@@ -26,19 +26,6 @@ class WorkState extends React.Component {
     });
   }
 
-  // getHelpwanteds = job => {
-  //   fetch(`http://localhost:3000/api/v1/jobs/${job.id}/filtered`)
-  //     .then(response => response.json())
-  //     .then(data =>
-  //       this.setState({
-  //         helpwanteds: data.helpwanteds,
-  //         paginate: data.pagination,
-  //         data: "home"
-  //       })
-  //     );
-  //   console.log("help completed");
-  // };
-
   handlePrev = e => {
     if (this.state.helpwanteds.length < 2 || this.state.length === 1) {
       API.prev(this.state.paginate.prev_page_url).then(data =>
@@ -64,14 +51,8 @@ class WorkState extends React.Component {
     }
   };
 
-  helpwantedFiltered = () => {
-    if (this.props.helpwantedFiltered) {
-      this.setState({ helpwanteds: this.props.helpwantedFiltered });
-    }
-  };
-
   render() {
-    console.log(this.state.helpwanteds);
+    console.log("workstate:", this.props);
     let helpwanted = this.state.helpwanteds.map(helpwanted => {
       return (
         <Profile
@@ -82,37 +63,14 @@ class WorkState extends React.Component {
       );
     });
 
-    if (this.state.data === "home") {
-      return (
-        <React.Fragment>
-          <Title title={this.state.title} />
-          <Pagination
-            handleNext={this.handleNext}
-            handlePrev={this.handlePrev}
-          />
-          {helpwanted[this.state.length]}
-          <Pagination
-            handleNext={this.handleNext}
-            handlePrev={this.handlePrev}
-          />
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <Title title={this.state.title} />
-          <Pagination
-            handleNext={this.handleNext}
-            handlePrev={this.handlePrev}
-          />
-          {helpwanted[this.state.length]}
-          <Pagination
-            handleNext={this.handleNext}
-            handlePrev={this.handlePrev}
-          />
-        </React.Fragment>
-      );
-    }
+    return (
+      <React.Fragment>
+        <Title title={this.state.title} />
+        <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
+        {helpwanted[this.state.length]}
+        <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
+      </React.Fragment>
+    );
   }
 }
 
