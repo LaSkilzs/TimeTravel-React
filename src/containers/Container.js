@@ -23,9 +23,6 @@ class Container extends Component {
       switchbutton: false,
       pageChange: false
     };
-  }
-
-  async componentDidMount() {
     API.loadData().then(data => {
       this.setState({
         homestate: data.industries.industries,
@@ -61,6 +58,9 @@ class Container extends Component {
       );
   };
 
+  handleData = (component, data, paginateType, pagination) =>
+    this.setState({ [component]: data, [paginateType]: pagination });
+
   goResetHelpWanted = e => this.setState({ switchButton: false });
   goReset = e => this.setState({ switchButton: false });
 
@@ -80,7 +80,7 @@ class Container extends Component {
                   switchButton={this.state.switchButton}
                   goReset={this.goReset}
                   industries={this.state.homestate}
-                  pageChange={this.state.pageChange}
+                  jobs={this.state.jobstate}
                 />
               )}
             />

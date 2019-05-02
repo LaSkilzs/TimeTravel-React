@@ -19,6 +19,8 @@ The app provides search and filter options, that allow user choice and a customi
 
 ## Illustration/GIFS.
 
+![Time Travel](Time_Travel.png)
+
 ## Authors
 
 By La Fountain

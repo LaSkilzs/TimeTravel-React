@@ -9,26 +9,17 @@ class HomeState extends React.Component {
   constructor() {
     super();
     this.state = {
-      industries: [],
       title: "Work Industries",
       card: "home",
-      paginate: [],
-      length: 0,
-      jobs: [],
-      industry: {}
+      length: 0
     };
   }
 
-  async componentDidMount() {
-    const response = await fetch("http://localhost:3000/api/v1/industries");
-    const industries = await response.json();
-    this.setState({
-      industries: industries.industries,
-      paginate: industries.pagination
-    });
-  }
+  handleSwitch = () =>
+    this.setState({ switchButton: !this.state.switchButton });
 
   handlePrev = e => {
+    console.log(this.state.length);
     if (this.state.length === 1) {
       API.prev(this.state.paginate.prev_page_url).then(data =>
         this.setState({
@@ -43,6 +34,7 @@ class HomeState extends React.Component {
 
   handleNext = e => {
     e.preventDefault();
+    console.log(this.state.length);
     if (this.state.length === 4) {
       API.next(this.state.paginate.next_page_url).then(data =>
         this.setState({
@@ -56,7 +48,7 @@ class HomeState extends React.Component {
   };
 
   render() {
-    let industry = this.state.industries.map(industry => {
+    let industry = this.props.industries.map(industry => {
       return (
         <Profile
           card={this.state.card}
@@ -68,6 +60,7 @@ class HomeState extends React.Component {
         />
       );
     });
+
     return (
       <React.Fragment>
         <Title title={this.state.title} />
@@ -75,7 +68,7 @@ class HomeState extends React.Component {
         {industry[this.state.length]}
         <Pagination handleNext={this.handleNext} handlePrev={this.handlePrev} />
         <React.Fragment>
-          {this.props.jobs ? (
+          {this.props.switchButton ? (
             <JobState jobs={this.props.jobs} card={this.state.card} />
           ) : null}
         </React.Fragment>

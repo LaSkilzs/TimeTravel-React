@@ -16,14 +16,14 @@ class JobState extends React.Component {
       showDetails: false
     };
   }
-  async componentDidMount() {
-    const response = await fetch("http://localhost:3000/api/v1/jobs");
-    const jobs = await response.json();
-    this.setState({
-      jobs: jobs.jobs,
-      paginate: jobs.pagination
-    });
-  }
+  // async componentDidMount() {
+  //   const response = await fetch("http://localhost:3000/api/v1/jobs");
+  //   const jobs = await response.json();
+  //   this.setState({
+  //     jobs: jobs.jobs,
+  //     paginate: jobs.pagination
+  //   });
+  // }
   handleDetails = () => {
     this.setState({ showDetails: !this.state.showDetails });
   };
@@ -65,7 +65,7 @@ class JobState extends React.Component {
           <div className="m-3 employmentsection">
             <div className="job-container">
               <div id="jobs-section" className="row card">
-                {this.state.jobs.map(job => {
+                {this.props.jobs.map(job => {
                   return (
                     <JobCard
                       showDetailsCard={this.state.showDetails}
